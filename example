@@ -1,0 +1,11 @@
+import torch
+
+model_dir = 'model.pth'
+device = 'your device'
+
+model = torch.load(model_dir).to(device)
+model.load_state_dict(model)
+
+target_layers = [model.model.blocks[-1][0].bn1]
+
+make_gradcam(target_im_dir, pred, target_layers, )
